@@ -6,42 +6,12 @@
     <!--link rel="stylesheet" href="style.css"-->
   </head>
   <body style="margin:0; border:0">
-    <div id="wrapper"></div>
+    <div style="position: fixed; z-index: -99; width: 100%; height: 100%">
+      <div id="player" frameborder="0" height="100%" width="100%"></div>
+    </div>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/jquery.tubular.1.0.js"></script> 
     <script src="/socket.io/socket.io.js"></script>
-    <script>
-      $().ready(function() {
-       /*
-        function setBg(id) {
-        }
-
-        */
-        var id = 'ab0TSkLe-E0';
-        $('#wrapper').tubular({videoId: id});
-        var socket = io();
-      
-        //var mySound = new Audio('http://www.freesfx.co.uk/rx2/mp3s/8/9300_1355788426.mp3');
-        //mySound.load();
-        window.onPlayerStateChange = function(state) {
-          if (state.data === 0) { // video ended and repeat option is set true
-            var id = 'ab0TSkLe-E0';
-            $('iframe')[0].src = "http://www.youtube.com/embed/" + id + "?controls=0&showinfo=0&modestbranding=1&wmode=transparent&enablejsapi=1&origin=http%3A%2F%2Flocalhost%3A3000"
-            //window.player.seekTo(0); // restart
-          }
-        }
-
-        socket.on('abc', function (data) {
-          var id = 'WUFxARB880E';
-          $('iframe')[0].src = "http://www.youtube.com/embed/" + id + "?controls=0&showinfo=0&modestbranding=1&wmode=transparent&enablejsapi=1&origin=http%3A%2F%2Flocalhost%3A3000"
-          
-          
-          //mySound.play();
-          console.log(data);
-        });
-      
-      });
-    </script>
-    <!--script src="/main.js"></script-->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="/js/main.js"></script>
   </body>
 </html>
