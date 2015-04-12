@@ -12,7 +12,11 @@
     <script>
       var socket = io();
       
+      var mySound = new Audio('http://www.freesfx.co.uk/rx2/mp3s/8/9300_1355788426.mp3');
+      mySound.load();
+      
       socket.on('abc', function (data) {
+        mySound.play();
         console.log(data);
       });
     </script>
